@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-#脚本用于监测slave的状态, 配合crontab 使用
+#脚本用于监测slave的状态, 配合crontab 使用, 默认会在slave down之后或者slave延迟超过两小时时发送通知邮件
 #
 
 STATUS=$(mysql -uusername -ppasswd -D db_name -hhost_name -e "show slave status\G"|grep -Ei '(running|second)')
@@ -9,7 +9,7 @@ IO_env=`echo $STATUS|grep IO |awk '{print $2}'`
 SQL_env=`echo $STATUS|grep SQL |awk '{print $2}'`
 DELAY=`echo $STATUS|grep -i secode | awk '{print $2}'`
 EMAIL=actberw@gmail.com
-# 错误邮件的发送地址
+# 通知邮件的发送地址
 
 ((DELAY=DELAY/3600))
 
