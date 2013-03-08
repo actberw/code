@@ -6,6 +6,8 @@
 STATUS=$(mysql -uusername -ppasswd -D db_name -hhost_name -e "show slave status\G"|grep -Ei '(running|second)')
 # 修改username， passwd， host 为自己的slave 相应的参数
 IO_env=`echo $STATUS|grep IO |awk '{print $2}'`
+#这样写应该也可以，节省了执行grep的过程
+IO_env=$(echo $STATUS | awk '/IO/ {print $2}')
 SQL_env=`echo $STATUS|grep SQL |awk '{print $2}'`
 DELAY=`echo $STATUS|grep -i secode | awk '{print $2}'`
 EMAIL=actberw@gmail.com
