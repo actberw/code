@@ -28,8 +28,9 @@ cd scribe
 ./bootstrap.sh
 ./configure CPPFLAGS="-DHAVE_INTTYPES_H -DHAVE_NETINET_IN_H -DBOOST_FILESYSTEM_VERSION=2"
 make
-cd src;g++  -Wall -O3 -L/usr/lib -o scribed store.o store_queue.o conf.o file.o conn_pool.o scribe_server.o network_dynamic_config.o dynamic_bucket_updater.o  env_default.o  -L/usr/local/lib -L/usr/local/lib -L/usr/local/lib -lfb303 -lthrift -lthriftnb -levent -lpthread  libscribe.a libdynamicbucketupdater.a -lboost_system-mt -lboost_filesystem-mt;cd ../
+cd src;g++  -Wall -O3 -L/usr/lib  -o scribed store.o store_queue.o conf.o file.o conn_pool.o scribe_server.o network_dynamic_config.o dynamic_bucket_updater.o  env_default.o  -L/usr/local/lib -L/usr/local/lib -L/usr/local/lib -lfb303 -lthrift -lthriftnb -levent -lpthread  libscribe.a libdynamicbucketupdater.a -lboost_system-mt -lboost_filesystem-mt;cd ../
 make install
 
 echo "Copy python package"
 cd /usr/lib/python2.7/site-packages;sudo cp -r ./ ../dist-packages/
+cd
