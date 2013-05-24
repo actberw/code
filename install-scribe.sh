@@ -11,6 +11,7 @@ echo "Install thrift"
 ./configure --with-ruby=no
 make
 make install
+ldconfig
 MSG=`thrift -version`
 echo $MSG
 
