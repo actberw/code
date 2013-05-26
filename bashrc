@@ -23,4 +23,4 @@ find_git_branch () {
 }
 
 export PROMPT_COMMAND="find_git_branch; $PROMPT_COMMAND"
-export PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\u@\h:\w\e[1;31m\$git_branch\e[0m\$ "
+export PS1="[\u@\h:\w]\e[1;31m\$git_branch\e[0m\$ "
