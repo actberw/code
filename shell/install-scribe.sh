@@ -3,7 +3,7 @@ cd
 echo "Install dependencies"
 aptitude install autoconf automake libtool pkg-config libtool libevent-dev libevent-2.0-5 libboost-all-dev
 echo "Download and extract source file"
-wget http://ftp.kddilabs.jp/infosystems/apache/thrift/0.9.0/thrift-0.9.0.tar.gz
+wget http://archive.apache.org/dist/thrift/0.9.0/thrift-0.9.0.tar.gz
 tar zxvf thrift-0.9.0.tar.gz
 cd thrift-0.9.0
 
