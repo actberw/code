@@ -23,7 +23,12 @@ find_git_branch () {
 }
 
 export PROMPT_COMMAND="find_git_branch; $PROMPT_COMMAND"
-export PS1="[\u@\h:\w]\e[1;31m\$git_branch\e[0m\$ "
+export PS1="[\u@\h:\W]\e[1;31m\$git_branch\e[0m\$ "
+
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxbxdxexGxGgGcGd
 
 # alias
+alias rm="rm -i"
+alias ll='ls -lh'
 alias grep="grep --color=auto -n"
