@@ -1,12 +1,14 @@
 #/usr/bin/env bash
 cd
 echo "Install dependencies"
+# ubuntu
 aptitude install autoconf automake pkg-config libtool libevent-dev libevent-2.0-5 libboost-all-dev
 # centos 
 # sudo yum install libevent libevent-devel openssl-devel
 # wget http://sourceforge.net/projects/boost/files/boost/1.46.0/boost_1_46_0.tar.gz/download;tar zxvf boost_1_46_0.tar.gz;cd boost_1_46_0;
 # ./bootstrap.sh --prefix=/usr/local
 # sudo ./bjam --with-filesystem --with-system install # bjam --show-libraries
+# echo "/usr/local/lib" >> /etc/ld.so.conf
 # ldconfig
 echo "Download thrift and extract source file"
 wget http://archive.apache.org/dist/thrift/0.9.0/thrift-0.9.0.tar.gz
@@ -30,9 +32,11 @@ make install
 
 cd
 echo "Install scribe"
-#git clone https://github.com/facebook/scribe.git
-wget https://github.com/facebook/scribe/archive/master.zip;unzip master.zip
+git clone https://github.com/facebook/scribe.git
 cd scribe
+#centos
+#wget https://github.com/facebook/scribe/archive/master.zip;unzip master
+#cd scribe-master
 ./bootstrap.sh
 ./configure CPPFLAGS="-DHAVE_INTTYPES_H -DHAVE_NETINET_IN_H -DBOOST_FILESYSTEM_VERSION=2"
 make
